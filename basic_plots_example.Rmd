@@ -1,0 +1,23 @@
+##################################################################
+# Sept 13, 2018
+# Eileen Shea
+#
+# Script producing basic plots
+##################################################################
+
+library(tidyverse)
+
+## set seed to ensure reproducibility
+set.seed(1234)
+
+## define data frame containing x and y
+plot_df = tibble(
+  x = rnorm(1000, sd = .5),
+  y = 1 + 2 * x + rnorm(1000)
+)
+
+## histogram of x
+ggplot(plot_df, aes(x = x)) + geom_histogram()
+
+## scatterplot of x and y
+ggplot(plot_df, aes(x = x, y = y)) + geom_point()
